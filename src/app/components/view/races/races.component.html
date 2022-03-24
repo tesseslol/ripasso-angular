@@ -1,0 +1,19 @@
+<table mat-table [dataSource]="currentRaces">
+    <!-- User name Definition -->
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id Corsa </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nomeCorsa}} </mat-cell>
+    </ng-container>
+
+    <!-- Age Definition -->
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Ottieni Informazioni </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <button mat-raised-button (click)="getRacesInformations(row.id)">Ottieni</button>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['id', 'action']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['id', 'action']"></mat-row>
+</table>
